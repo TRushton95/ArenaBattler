@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://dom5e0xjscfkq"]
+
+[ext_resource type="Script" uid="uid://djgdmfmgaqmhh" path="res://game_ui/game_ui.gd" id="1_dfl03"]
+
+[node name="GameUI" type="CanvasLayer"]
+script = ExtResource("1_dfl03")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="PlayerTargetLabel" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Target: None"

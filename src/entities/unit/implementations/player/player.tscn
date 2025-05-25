@@ -7,8 +7,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1r3i"]
 size = Vector2(128, 128)
 
-[node name="Unit" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_sprite", "_collision_shape", "_controller")]
 script = ExtResource("1_tkh0x")
+_display_name = "Player"
+_sprite = NodePath("Sprite2D")
+_collision_shape = NodePath("CollisionShape2D")
+_controller = NodePath("PlayerController")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_p0kfm")
@@ -16,5 +20,5 @@ texture = ExtResource("2_p0kfm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_h1r3i")
 
-[node name="PlayerController" parent="." node_paths=PackedStringArray("_unit") instance=ExtResource("3_p0kfm")]
-_unit = NodePath("..")
+[node name="PlayerController" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("3_p0kfm")]
+_player = NodePath("..")
