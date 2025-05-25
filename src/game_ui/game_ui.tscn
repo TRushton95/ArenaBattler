@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://dom5e0xjscfkq"]
+[gd_scene load_steps=4 format=3 uid="uid://dom5e0xjscfkq"]
 
 [ext_resource type="Script" uid="uid://djgdmfmgaqmhh" path="res://game_ui/game_ui.gd" id="1_dfl03"]
+[ext_resource type="PackedScene" uid="uid://cbh03bqb6h0a6" path="res://game_ui/resource_bar/mana_bar.tscn" id="2_h0okc"]
+[ext_resource type="PackedScene" uid="uid://db3h4u72qyjf3" path="res://game_ui/resource_bar/energy_bar.tscn" id="3_vsxus"]
 
 [node name="GameUI" type="CanvasLayer"]
 script = ExtResource("1_dfl03")
@@ -11,7 +13,18 @@ offset_bottom = 40.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 
-[node name="PlayerTargetLabel" type="Label" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="PlayerTargetLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "Target: None"
+
+[node name="ManaBar" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_h0okc")]
+visible = false
+layout_mode = 2
+
+[node name="EnergyBar" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_vsxus")]
+visible = false
+layout_mode = 2

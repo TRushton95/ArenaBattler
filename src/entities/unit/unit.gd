@@ -11,6 +11,8 @@ const MOVE_SPEED : float = 300.0
 @export var _sprite : Sprite2D
 @export var _collision_shape : CollisionShape2D
 @export var _spell_container : SpellContainer
+@export var _mana_vital : ManaVital
+@export var _energy_vital : EnergyVital
 
 var _selected_unit : Unit
 var _movement_destination : Vector2
@@ -34,10 +36,20 @@ func _ready() -> void:
 	_movement_destination = position
 	input_event.connect(_on_input_event)
 	input_pickable = true
+	
+	if _mana_vital != null:
+		_mana_vital.setup()
+	if _energy_vital != null:
+		_energy_vital.setup()
 
 
 func _process(delta: float) -> void:
 	_handle_movement(delta)
+	
+	if _mana_vital != null:
+		_mana_vital.update(delta)
+	if _energy_vital != null:
+		_energy_vital.update(delta)
 
 
 func get_display_name() -> String:
@@ -46,6 +58,14 @@ func get_display_name() -> String:
 
 func get_selected_unit() -> Unit:
 	return _selected_unit
+
+
+func get_mana_vital() -> ManaVital:
+	return _mana_vital
+
+
+func get_energy_vital() -> EnergyVital:
+	return _energy_vital
 
 
 func set_selected_unit(unit: Unit) -> void:

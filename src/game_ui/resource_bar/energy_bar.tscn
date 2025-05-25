@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://db3h4u72qyjf3"]
+
+[ext_resource type="Script" uid="uid://dfhhkd28ruwgp" path="res://game_ui/resource_bar/resource_bar.gd" id="1_d8oum"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqcyb"]
+bg_color = Color(0.19586, 0.181683, 0.00976566, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p1cwv"]
+bg_color = Color(0.715604, 0.70581, 0.112684, 1)
+
+[node name="EnergyBar" type="ProgressBar"]
+custom_minimum_size = Vector2(150, 25)
+theme_override_styles/background = SubResource("StyleBoxFlat_xqcyb")
+theme_override_styles/fill = SubResource("StyleBoxFlat_p1cwv")
+step = 1.0
+value = 50.0
+show_percentage = false
+script = ExtResource("1_d8oum")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "0 / 0"
+horizontal_alignment = 1
+
+[connection signal="changed" from="." to="." method="_on_changed"]
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]
