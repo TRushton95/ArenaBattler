@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var _player : Unit = $Player
 @onready var _target_dummy : Unit = $TargetDummy
+@onready var _player_controller : PlayerController = $PlayerController
 @onready var _game_ui : GameUI = $GameUI
 
 

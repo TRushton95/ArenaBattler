@@ -1,18 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bx7yyu5k2qt1g"]
+[gd_scene load_steps=8 format=3 uid="uid://bx7yyu5k2qt1g"]
 
 [ext_resource type="Script" uid="uid://dd6p5vc1gw01x" path="res://entities/unit/unit.gd" id="1_tkh0x"]
 [ext_resource type="Texture2D" uid="uid://cotgl7b20r53y" path="res://icon.svg" id="2_p0kfm"]
-[ext_resource type="PackedScene" uid="uid://bjnhbjhfjg8ih" path="res://entities/unit/components/controllers/player_controller.tscn" id="3_p0kfm"]
+[ext_resource type="Script" uid="uid://bxm06y20e7bfd" path="res://spells/spell.gd" id="4_bbxe6"]
+[ext_resource type="PackedScene" uid="uid://ww7n2qtpxnyg" path="res://entities/unit/components/spell_container/spell_container.tscn" id="4_tec6x"]
+[ext_resource type="Resource" uid="uid://buhl5afrqhuox" path="res://entities/unit/implementations/player/spells/fireball_spell.tres" id="5_oy2cj"]
+[ext_resource type="Resource" uid="uid://bswxy7u8o7lgg" path="res://entities/unit/implementations/player/spells/heal_spell.tres" id="6_3t34n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1r3i"]
 size = Vector2(128, 128)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_sprite", "_collision_shape", "_controller")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("_sprite", "_collision_shape", "_spell_container")]
 script = ExtResource("1_tkh0x")
 _display_name = "Player"
 _sprite = NodePath("Sprite2D")
 _collision_shape = NodePath("CollisionShape2D")
-_controller = NodePath("PlayerController")
+_spell_container = NodePath("SpellContainer")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_p0kfm")
@@ -20,5 +23,5 @@ texture = ExtResource("2_p0kfm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_h1r3i")
 
-[node name="PlayerController" parent="." node_paths=PackedStringArray("_player") instance=ExtResource("3_p0kfm")]
-_player = NodePath("..")
+[node name="SpellContainer" parent="." instance=ExtResource("4_tec6x")]
+_spells = Array[ExtResource("4_bbxe6")]([ExtResource("5_oy2cj"), ExtResource("6_3t34n")])

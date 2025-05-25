@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ww7n2qtpxnyg"]
+
+[ext_resource type="Script" uid="uid://0qph3sig1wwg" path="res://entities/unit/components/spell_container/spell_container.gd" id="1_4xhcn"]
+
+[node name="SpellContainer" type="Node"]
+script = ExtResource("1_4xhcn")

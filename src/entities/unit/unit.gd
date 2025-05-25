@@ -10,7 +10,7 @@ const MOVE_SPEED : float = 300.0
 @export var _display_name : String
 @export var _sprite : Sprite2D
 @export var _collision_shape : CollisionShape2D
-@export var _controller : PlayerController
+@export var _spell_container : SpellContainer
 
 var _selected_unit : Unit
 var _movement_destination : Vector2
@@ -44,6 +44,10 @@ func get_display_name() -> String:
 	return _display_name
 
 
+func get_selected_unit() -> Unit:
+	return _selected_unit
+
+
 func set_selected_unit(unit: Unit) -> void:
 	_selected_unit = unit
 	selected_unit_changed.emit(unit)
@@ -51,6 +55,32 @@ func set_selected_unit(unit: Unit) -> void:
 
 func set_movement_destination(destination: Vector2) -> void:
 	_movement_destination = destination
+
+
+func validate_cast(index: int, target: Unit) -> bool:
+	var spell : Spell = _spell_container.get_spell_by_index(index)
+	if spell == null:
+		return false
+		
+	return spell.validate_target(self, target)
+
+
+func cast(index: int, target: Unit) -> void:
+	var spell : Spell = _spell_container.get_spell_by_index(index)
+	if spell == null:
+		return
+		
+	return spell.cast(self, target)
+
+
+func damage(value: int) -> void:
+	value = value if value > 0 else 0
+	print("%s was damaged for %s" % [_display_name, str(value)])
+
+
+func heal(value: int) -> void:
+	value = value if value > 0 else 0
+	print("%s was healed for %s" % [_display_name, str(value)])
 
 
 func _handle_movement(delta: float) -> void:
