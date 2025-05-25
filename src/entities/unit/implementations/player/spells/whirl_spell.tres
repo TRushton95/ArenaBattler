@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=12 format=3 uid="uid://c2566klt40q2u"]
+
+[ext_resource type="Script" uid="uid://b2421o8k0m1k2" path="res://spells/effects/effect.gd" id="1_iqop2"]
+[ext_resource type="Script" uid="uid://cibknxkyeytit" path="res://spells/cost/vital_cost.gd" id="2_ew0h1"]
+[ext_resource type="Script" uid="uid://b4uisjpablywl" path="res://spells/target_type/enemy_target_type.gd" id="2_th52r"]
+[ext_resource type="Script" uid="uid://bpln40lrdfi14" path="res://spells/effects/damage_effect.gd" id="2_vgev0"]
+[ext_resource type="Script" uid="uid://bxm06y20e7bfd" path="res://spells/spell.gd" id="3_mob55"]
+[ext_resource type="Script" uid="uid://cp0avo78dh2a4" path="res://spells/cost/energy_vital_cost.gd" id="4_vgev0"]
+[ext_resource type="Script" uid="uid://euisrauuto7v" path="res://spells/cost/mana_vital_cost.gd" id="5_jm2nd"]
+
+[sub_resource type="Resource" id="Resource_jm2nd"]
+script = ExtResource("2_vgev0")
+_value = 80
+metadata/_custom_type_script = "uid://bpln40lrdfi14"
+
+[sub_resource type="Resource" id="Resource_g6uga"]
+script = ExtResource("2_th52r")
+metadata/_custom_type_script = "uid://b4uisjpablywl"
+
+[sub_resource type="Resource" id="Resource_y1ngq"]
+script = ExtResource("4_vgev0")
+_value = 60
+metadata/_custom_type_script = "uid://cp0avo78dh2a4"
+
+[sub_resource type="Resource" id="Resource_u3pqa"]
+script = ExtResource("5_jm2nd")
+_value = 25
+metadata/_custom_type_script = "uid://euisrauuto7v"
+
+[resource]
+script = ExtResource("3_mob55")
+_cast_duration = 0.0
+_target_type = SubResource("Resource_g6uga")
+_vital_costs = Array[ExtResource("2_ew0h1")]([SubResource("Resource_y1ngq"), SubResource("Resource_u3pqa")])
+_effects = Array[ExtResource("1_iqop2")]([SubResource("Resource_jm2nd")])
+metadata/_custom_type_script = "uid://bxm06y20e7bfd"

@@ -85,6 +85,14 @@ func validate_cast(index: int, target: Unit) -> bool:
 	return spell.validate_target(self, target)
 
 
+func can_afford(index: int) -> bool:
+	var spell : Spell = _spell_container.get_spell_by_index(index)
+	if spell == null:
+		return false
+		
+	return spell.can_afford(self)
+
+
 func cast(index: int, target: Unit) -> void:
 	var spell : Spell = _spell_container.get_spell_by_index(index)
 	if spell == null:

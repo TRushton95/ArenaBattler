@@ -10,6 +10,7 @@ bg_color = Color(0.132693, 0.253133, 1, 1)
 
 [node name="ManaBar" type="ProgressBar"]
 custom_minimum_size = Vector2(150, 25)
+size_flags_horizontal = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_xqcyb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p1cwv")
 step = 1.0

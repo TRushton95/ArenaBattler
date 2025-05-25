@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Spell" load_steps=7 format=3 uid="uid://bswxy7u8o7lgg"]
+[gd_resource type="Resource" script_class="Spell" load_steps=10 format=3 uid="uid://bswxy7u8o7lgg"]
 
 [ext_resource type="Script" uid="uid://b2421o8k0m1k2" path="res://spells/effects/effect.gd" id="1_eh5v3"]
 [ext_resource type="Script" uid="uid://cgnk313dmdd1o" path="res://spells/effects/heal_effect.gd" id="2_0k6me"]
 [ext_resource type="Script" uid="uid://bxm06y20e7bfd" path="res://spells/spell.gd" id="2_jruj4"]
 [ext_resource type="Script" uid="uid://j5hemdvtjyx5" path="res://spells/target_type/self_target_type.gd" id="3_co526"]
+[ext_resource type="Script" uid="uid://cibknxkyeytit" path="res://spells/cost/vital_cost.gd" id="4_ncid0"]
+[ext_resource type="Script" uid="uid://euisrauuto7v" path="res://spells/cost/mana_vital_cost.gd" id="5_0vnl0"]
 
 [sub_resource type="Resource" id="Resource_ncid0"]
 script = ExtResource("2_0k6me")
@@ -14,9 +16,15 @@ metadata/_custom_type_script = "uid://cgnk313dmdd1o"
 script = ExtResource("3_co526")
 metadata/_custom_type_script = "uid://j5hemdvtjyx5"
 
+[sub_resource type="Resource" id="Resource_4ncgc"]
+script = ExtResource("5_0vnl0")
+_value = 75
+metadata/_custom_type_script = "uid://euisrauuto7v"
+
 [resource]
 script = ExtResource("2_jruj4")
 _cast_duration = 2.0
 _target_type = SubResource("Resource_0vnl0")
+_vital_costs = Array[ExtResource("4_ncid0")]([SubResource("Resource_4ncgc")])
 _effects = Array[ExtResource("1_eh5v3")]([SubResource("Resource_ncid0")])
 metadata/_custom_type_script = "uid://bxm06y20e7bfd"

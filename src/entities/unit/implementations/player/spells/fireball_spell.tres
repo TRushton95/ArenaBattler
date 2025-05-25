@@ -1,9 +1,11 @@
-[gd_resource type="Resource" script_class="Spell" load_steps=7 format=3 uid="uid://buhl5afrqhuox"]
+[gd_resource type="Resource" script_class="Spell" load_steps=10 format=3 uid="uid://buhl5afrqhuox"]
 
 [ext_resource type="Script" uid="uid://b2421o8k0m1k2" path="res://spells/effects/effect.gd" id="1_lbwgv"]
 [ext_resource type="Script" uid="uid://bxm06y20e7bfd" path="res://spells/spell.gd" id="2_hk7xo"]
 [ext_resource type="Script" uid="uid://bpln40lrdfi14" path="res://spells/effects/damage_effect.gd" id="2_irqox"]
 [ext_resource type="Script" uid="uid://b4uisjpablywl" path="res://spells/target_type/enemy_target_type.gd" id="3_4mik5"]
+[ext_resource type="Script" uid="uid://cibknxkyeytit" path="res://spells/cost/vital_cost.gd" id="4_q8q2m"]
+[ext_resource type="Script" uid="uid://euisrauuto7v" path="res://spells/cost/mana_vital_cost.gd" id="5_gawi1"]
 
 [sub_resource type="Resource" id="Resource_q8q2m"]
 script = ExtResource("2_irqox")
@@ -14,9 +16,15 @@ metadata/_custom_type_script = "uid://bpln40lrdfi14"
 script = ExtResource("3_4mik5")
 metadata/_custom_type_script = "uid://b4uisjpablywl"
 
+[sub_resource type="Resource" id="Resource_c224m"]
+script = ExtResource("5_gawi1")
+_value = 25
+metadata/_custom_type_script = "uid://euisrauuto7v"
+
 [resource]
 script = ExtResource("2_hk7xo")
 _cast_duration = 1.5
 _target_type = SubResource("Resource_gawi1")
+_vital_costs = Array[ExtResource("4_q8q2m")]([SubResource("Resource_c224m")])
 _effects = Array[ExtResource("1_lbwgv")]([SubResource("Resource_q8q2m")])
 metadata/_custom_type_script = "uid://bxm06y20e7bfd"

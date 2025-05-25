@@ -10,6 +10,9 @@ bg_color = Color(0.715604, 0.70581, 0.112684, 1)
 
 [node name="EnergyBar" type="ProgressBar"]
 custom_minimum_size = Vector2(150, 25)
+offset_right = 150.0
+offset_bottom = 25.0
+size_flags_horizontal = 0
 theme_override_styles/background = SubResource("StyleBoxFlat_xqcyb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_p1cwv")
 step = 1.0

@@ -1,18 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://bx7yyu5k2qt1g"]
+[gd_scene load_steps=13 format=3 uid="uid://bx7yyu5k2qt1g"]
 
 [ext_resource type="Script" uid="uid://dd6p5vc1gw01x" path="res://entities/unit/unit.gd" id="1_tkh0x"]
 [ext_resource type="Script" uid="uid://bnfrp8sxy70bt" path="res://entities/unit/components/vital/mana_vital.gd" id="2_oy2cj"]
 [ext_resource type="Texture2D" uid="uid://cotgl7b20r53y" path="res://icon.svg" id="2_p0kfm"]
+[ext_resource type="Script" uid="uid://drbfrfpjo0k2b" path="res://entities/unit/components/vital/energy_vital.gd" id="3_3t34n"]
 [ext_resource type="Script" uid="uid://bxm06y20e7bfd" path="res://spells/spell.gd" id="4_bbxe6"]
 [ext_resource type="PackedScene" uid="uid://ww7n2qtpxnyg" path="res://entities/unit/components/spell_container/spell_container.tscn" id="4_tec6x"]
 [ext_resource type="Resource" uid="uid://buhl5afrqhuox" path="res://entities/unit/implementations/player/spells/fireball_spell.tres" id="5_oy2cj"]
 [ext_resource type="Resource" uid="uid://bswxy7u8o7lgg" path="res://entities/unit/implementations/player/spells/heal_spell.tres" id="6_3t34n"]
+[ext_resource type="Resource" uid="uid://c2566klt40q2u" path="res://entities/unit/implementations/player/spells/whirl_spell.tres" id="8_3t34n"]
 
 [sub_resource type="Resource" id="Resource_3t34n"]
 script = ExtResource("2_oy2cj")
 _max_value = 100
 _regen_per_sec = 1
 metadata/_custom_type_script = "uid://bnfrp8sxy70bt"
+
+[sub_resource type="Resource" id="Resource_d4e58"]
+script = ExtResource("3_3t34n")
+_max_value = 120
+_regen_per_sec = 5
+metadata/_custom_type_script = "uid://drbfrfpjo0k2b"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1r3i"]
 size = Vector2(128, 128)
@@ -24,6 +32,7 @@ _sprite = NodePath("Sprite2D")
 _collision_shape = NodePath("CollisionShape2D")
 _spell_container = NodePath("SpellContainer")
 _mana_vital = SubResource("Resource_3t34n")
+_energy_vital = SubResource("Resource_d4e58")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_p0kfm")
@@ -32,4 +41,4 @@ texture = ExtResource("2_p0kfm")
 shape = SubResource("RectangleShape2D_h1r3i")
 
 [node name="SpellContainer" parent="." instance=ExtResource("4_tec6x")]
-_spells = Array[ExtResource("4_bbxe6")]([ExtResource("5_oy2cj"), ExtResource("6_3t34n")])
+_spells = Array[ExtResource("4_bbxe6")]([ExtResource("5_oy2cj"), ExtResource("6_3t34n"), ExtResource("8_3t34n")])
