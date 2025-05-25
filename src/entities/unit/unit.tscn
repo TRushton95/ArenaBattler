@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bx7yyu5k2qt1g"]
+
+[ext_resource type="Script" uid="uid://dd6p5vc1gw01x" path="res://entities/unit/unit.gd" id="1_tkh0x"]
+[ext_resource type="Texture2D" uid="uid://cotgl7b20r53y" path="res://icon.svg" id="2_p0kfm"]
+[ext_resource type="PackedScene" uid="uid://bjnhbjhfjg8ih" path="res://entities/unit/components/controllers/player_controller.tscn" id="3_p0kfm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1r3i"]
+size = Vector2(128, 128)
+
+[node name="Unit" type="CharacterBody2D"]
+script = ExtResource("1_tkh0x")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_p0kfm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h1r3i")
+
+[node name="PlayerController" parent="." node_paths=PackedStringArray("_unit") instance=ExtResource("3_p0kfm")]
+_unit = NodePath("..")
